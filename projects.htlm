@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Danh sách bài tập và dự án cá nhân - Portfolio Kỹ thuật số - Đại học Kinh tế, ĐHQGHN">
+    <title>My Projects | Tzz Portfolio </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    /* 1. Nền trang trắng xám thanh lịch, xóa sạch lưới neon tối */
+    html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"], [class*="container"] {
+        background-color: #f3f4f6 !important;
+        background: #f3f4f6 !important;
+        background-image: none !important;
+        color: #1f2937 !important;
+    }
+
+    /* 2. Khung nội dung (Cards) biến thành màu trắng tinh tế, viền xanh Logistics */
+    .card, .about-card, .project-card, .profile-card, section, div[class*="card"], .exercise-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-top: 5px solid #1e3a8a !important; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+        backdrop-filter: none !important;
+    }
+
+    /* 3. Tiêu đề lớn (My Projects, Tổng kết...) đổi sang màu xanh quyền lực */
+    h1, .hero-content h1, .text-gradient, [class*="title"], h2 {
+        color: #1e3a8a !important; 
+        background: none !important;
+        -webkit-text-fill-color: #1e3a8a !important;
+        text-shadow: none !important;
+    }
+    h3, h4, h5, h6, .logo, [class*="subtitle"], [class*="card-title"] {
+        color: #111827 !important;
+        background: none !important;
+        -webkit-text-fill-color: #111827 !important;
+    }
+
+    /* 4. Toàn bộ chữ mô tả bài tập đổi sang màu tối rõ nét */
+    p, span, li, td, th, .profile-info, .card p, .project-card p {
+        color: #374151 !important;
+    }
+
+    /* 5. Nút bấm "Xem chi tiết" thành màu Cam Vận Chuyển nổi bật */
+    button, .btn, .button, a[class*="btn"], [class*="button"], a.btn, [class*="btn-primary"] {
+        background: #ea580c !important; 
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 6px !important;
+        box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3) !important;
+        text-shadow: none !important;
+        font-weight: 600 !important;
+    }
+
+    /* Nút "Tải PDF" đổi thành màu xám xi măng thanh lịch để giảm bớt độ chói */
+    a[href*="pdf"], button:has(.fa-file-pdf), a:has(.fa-file-pdf), [class*="pdf"], .btn-secondary {
+        background: #4b5563 !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* 6. Chỉnh sửa các từ khóa thẻ nhãn (File Management, Search Operators...) */
+    .tag, span[class*="tag"], .badge, [class*="skill"], div[class*="tags"] span {
+        background: #e0f2fe !important; /* Nền xanh da trời nhạt */
+        color: #0369a1 !important; /* Chữ xanh đậm */
+        border: 1px solid #bae6fd !important;
+        text-shadow: none !important;
+    }
+
+    /* 7. Ẩn nút chọn Dark Mode */
+    [class*="theme"], [class*="mode"], .theme-toggle, button:has(.fa-moon) {
+        display: none !important;
+    }
+</style> <!-- ÉP GIAO DIỆN SÁNG & TỐI ƯU CHỮ ĐẬM RÕ NÉT (LOGISTICS STYLE) -->
+<style>
+    /* 0. NHẬP FONT CHỮ CÔNG SỞ HIỆN ĐẠI, HỖ TRỢ TIẾNG VIỆT HOÀN HẢO */
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+    
+    * {
+        font-family: 'Be Vietnam Pro', sans-serif !important;
+    }
+
+    /* 1. Nền trang trắng xám thanh lịch, xóa sạch lưới neon tối */
+    html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"], [class*="container"] {
+        background-color: #f3f4f6 !important;
+        background: #f3f4f6 !important;
+        background-image: none !important;
+        color: #1f2937 !important;
+    }
+
+    /* 2. Khung nội dung (Cards) biến thành màu trắng tinh tế, viền xanh Logistics */
+    .card, .about-card, .project-card, .profile-card, section, div[class*="card"], .exercise-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        border-top: 5px solid #1e3a8a !important; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+        backdrop-filter: none !important;
+    }
+
+    /* 3. SỬA LỖI CHỮ MENU BỊ MỜ (Làm rõ chữ About Me, Tổng Kết trên thanh điều hướng) */
+    nav a, .nav-link, .nav-links a, [class*="nav"] a, [class*="menu"] a, .nav-item {
+        color: #4b5563 !important; /* Đổi từ màu trắng mờ sang màu xám đen công sở */
+        font-weight: 600 !important;
+        opacity: 1 !important;
+    }
+    nav a:hover, .nav-link:hover, [class*="active"], .active-link {
+        color: #1e3a8a !important; /* Biến chữ đang chọn thành màu xanh thẫm quyền lực */
+        font-weight: 700 !important;
+    }
+
+    /* 4. TIÊU ĐỀ LỚN & CHỮ GRADIENT (Làm rõ nét chữ Projects và tên riêng của bạn) */
+    h1, .hero-content h1, .text-gradient, [class*="title"], h2, [class*="gradient"] {
+        color: #1e3a8a !important; 
+        background: none !important;
+        -webkit-text-fill-color: #1e3a8a !important;
+        text-shadow: none !important;
+        font-weight: 700 !important;
+    }
+    h3, h4, h5, h6, .logo, [class*="subtitle"], [class*="card-title"] {
+        color: #0f172a !important;
+        background: none !important;
+        -webkit-text-fill-color: #0f172a !important;
+    }
+
+    /* 5. SỬA LỖI CÁC SỐ GÓC BỊ CHÌM MẤT (Làm rõ số 01, 02 ở góc thẻ bài tập) */
+    [class*="number"], .card-number, .exercise-number, [class*="index"], .project-number {
+        color: #cbd5e1 !important; /* Đổi thành màu xám bạc sang trọng, nhìn rõ nhưng không đè chữ chính */
+        -webkit-text-fill-color: #cbd5e1 !important;
+        text-shadow: none !important;
+    }
+
+    /* 6. Toàn bộ chữ mô tả, đoạn văn đổi sang màu tối rõ nét, dễ đọc bài luận */
+    p, span, li, td, th, .profile-info, .card p, .project-card p, .exercise-card p {
+        color: #374151 !important;
+    }
+
+    /* 7. Nút bấm "Xem chi tiết" thành màu Cam Vận Chuyển nổi bật */
+    button, .btn, .button, a[class*="btn"], [class*="button"], a.btn, [class*="btn-primary"] {
+        background: #ea580c !important; 
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 6px !important;
+        box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3) !important;
+        text-shadow: none !important;
+        font-weight: 600 !important;
+    }
+
+    /* Nút "Tải PDF" đổi thành màu xám xi măng thanh lịch */
+    a[href*="pdf"], button:has(.fa-file-pdf), a:has(.fa-file-pdf), [class*="pdf"], .btn-secondary {
+        background: #4b5563 !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* 8. Chỉnh sửa các từ khóa thẻ nhãn (File Management, Search Operators...) */
+    .tag, span[class*="tag"], .badge, [class*="skill"], div[class*="tags"] span {
+        background: #e0f2fe !important; 
+        color: #0369a1 !important; 
+        border: 1px solid #bae6fd !important;
+        text-shadow: none !important;
+    }
+
+    /* 9. Ẩn nút chọn Dark Mode */
+    [class*="theme"], [class*="mode"], .theme-toggle, button:has(.fa-moon) {
+        display: none !important;
+    }
+</style>
+</head>
+
+<body>
+    <div class="grid-bg"></div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">Tzz Portfolio</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a class="nav-link" href="index.html">About Me</a></li>
+                <li><a class="nav-link" href="projects.html">My Projects</a></li>
+                <li><a class="nav-link" href="summary.html">Tổng Kết</a></li>
+            </ul>
+    
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <section class="section">
+            <div class="container">
+                <span class="section-label"><span class="dot"></span> Dự án</span>
+                <h2 class="section-title">My <span class="gradient">Projects</span></h2>
+                <p class="section-subtitle">
+                    Tập hợp 6 bài tập thành phần đã hoàn thành trong suốt học kỳ, thể hiện quá trình
+                    học tập và rèn luyện các kỹ năng số.
+                </p>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="card project-card animate-on-scroll stagger-1">
+                        <span class="project-number">01</span>
+                        <span class="project-badge bt1">Bài tập 1</span>
+                        <h3>Máy tính và các thiết bị ngoại vi</h3>
+                        <p class="project-desc">
+                            Thao tác cơ bản với tệp tin và thư mục. Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên
+                            tệp đã thiết lập, kèm ảnh chụp minh họa.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">File Management</span>
+                            <span class="project-tag">Naming Convention</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai1.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/1tBBHi8essaKFcVf90w_aA-NAhEYrJiNK/view?usp=sharing" target="_blank">📄 Tải PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="card project-card animate-on-scroll stagger-2">
+                        <span class="project-number">02</span>
+                        <span class="project-badge bt2">Bài tập 2</span>
+                        <h3>Khai thác dữ liệu và thông tin</h3>
+                        <p class="project-desc">
+                            Tìm kiếm và đánh giá thông tin học thuật bằng các toán tử nâng cao. Phân tích chiến lược tìm
+                            kiếm và đánh giá nguồn tin đa chiều.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Search Operators</span>
+                            <span class="project-tag">Information Evaluation</span>
+                            <span class="project-tag">Academic Research</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai2.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/13vBjyKszG29Okkl-rEhQ2f19Y26etNKV/view?usp=sharing" target="_blank">📄 Tải PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="card project-card animate-on-scroll stagger-3">
+                        <span class="project-number">03</span>
+                        <span class="project-badge bt3">Bài tập 3</span>
+                        <h3>Tổng quan về trí tuệ nhân tạo</h3>
+                        <p class="project-desc">
+                            Viết Prompt hiệu quả cho các tác vụ học tập. Trình bày sự so sánh giữa Prompt ban đầu và
+                            Prompt cải tiến cùng kết quả đầu ra từ AI.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Prompt Engineering</span>
+                            <span class="project-tag">Generative AI</span>
+                            <span class="project-tag">AI Assistant</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai3.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/1wmkuSU0aSr828WfTv2HgDlQrapgT8c70/view?usp=sharing" target="_blank">📄 Tải PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="card project-card animate-on-scroll stagger-4">
+                        <span class="project-number">04</span>
+                        <span class="project-badge bt4">Bài tập 4</span>
+                        <h3>Giao tiếp và hợp tác trong môi trường số</h3>
+                        <p class="project-desc">
+                            Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm. Trình bày minh chứng về việc sử dụng công
+                            cụ quản lý dự án nhóm và cách thức phối hợp trực tuyến.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Collaboration</span>
+                            <span class="project-tag">Project Management</span>
+                            <span class="project-tag">Online Tools</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai4.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/19ukJlxvOndnSF-pXO6MqnsQ-kkt6Res_/view?usp=sharing">📄 Tải PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="card project-card animate-on-scroll stagger-5">
+                        <span class="project-number">05</span>
+                        <span class="project-badge bt5">Bài tập 5</span>
+                        <h3>Sáng tạo nội dung số</h3>
+                        <p class="project-desc">
+                            Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung. Trưng bày sản phẩm nội dung số hoàn thiện
+                            (hình ảnh, video hoặc bài viết) được hỗ trợ bởi AI.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Content Creation</span>
+                            <span class="project-tag">AI Tools</span>
+                            <span class="project-tag">Multimedia</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai5.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/1L0asw-sacld658030Bk9o7kNYj9p3uf8/view?usp=sharing" target="_blank">📄 Tải PDF</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="card project-card animate-on-scroll stagger-6">
+                        <span class="project-number">06</span>
+                        <span class="project-badge bt6">Bài tập 6</span>
+                        <h3>An toàn và liêm chính học thuật</h3>
+                        <p class="project-desc">
+                            Sử dụng AI có trách nhiệm trong học tập và nghiên cứu. Trình bày bộ nguyên tắc cá nhân về sử
+                            dụng AI có trách nhiệm dựa trên các nghiên cứu đã thực hiện.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">AI Ethics</span>
+                            <span class="project-tag">Academic Integrity</span>
+                            <span class="project-tag">Responsible AI</span>
+                        </div>
+                        <div class="project-actions">
+                            <a class="btn btn-primary btn-sm" href="bai6.html">Xem chi tiết →</a>
+                            <a class="btn btn-pdf btn-sm" href="https://drive.google.com/file/d/1WcbBmKbz4SNjVEnd9l5IxWpzFJW-sZ7E/view?usp=sharing" target="_blank">📄 Tải PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Le Thi Ngoc Anh · Đại học Kinh te – ĐHQGHN · Nhập môn Công nghệ số &amp; AI</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
