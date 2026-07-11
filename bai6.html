@@ -6,28 +6,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bài tập 6: Sử dụng AI có trách nhiệm trong học tập - Portfolio Kỹ thuật số">
     <title>Bài tập 6 | Tzz Portfolio</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * {
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+        }
+
+        /* 1. Nền trang sáng, xóa lưới neon tối */
+        html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"], [class*="container"] {
+            background-color: #f3f4f6 !important;
+            background: #f3f4f6 !important;
+            background-image: none !important;
+            color: #1f2937 !important;
+        }
+
+        /* 2. Khung nội dung màu trắng, viền xanh chính trực đạo đức làm chủ đạo cho BT6 */
+        .card, .objective-card, .content-block, section, div[class*="card"] {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border: 1px solid #e5e7eb !important;
+            border-top: 5px solid #0284c7 !important; /* Xanh dương biểu trưng cho sự chính trực & an toàn dữ liệu */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+            padding: 24px !important;
+            margin-bottom: 24px !important;
+            border-radius: 4px;
+        }
+
+        /* Khung đặc biệt của các thẻ con bên trong */
+        .card:has(h3) {
+            border-top: 1px solid #e5e7eb !important;
+            box-shadow: none !important;
+        }
+
+        /* 3. Thanh điều hướng */
+        nav a, .nav-link, .nav-links a, [class*="nav"] a, [class*="menu"] a, .nav-item {
+            color: #4b5563 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+            text-decoration: none;
+        }
+        nav a:hover, .nav-link:hover, [class*="active"], .active-link {
+            color: #0284c7 !important;
+            font-weight: 700 !important;
+        }
+
+        /* 4. Tiêu đề lớn hiển thị rõ nét */
+        h1, .detail-title, .text-gradient, [class*="title"], h2, [class*="gradient"] {
+            color: #0369a1 !important; 
+            background: none !important;
+            -webkit-text-fill-color: #0369a1 !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+        }
+        h3, h4, h5, h6, .logo, [class*="subtitle"], [class*="card-title"] {
+            color: #0f172a !important;
+            background: none !important;
+            -webkit-text-fill-color: #0f172a !important;
+        }
+
+        /* 5. Chữ mô tả tối rõ nét */
+        p, span, li, td, th, div, em {
+            color: #374151 !important;
+        }
+        strong {
+            color: #111827 !important;
+        }
+
+        /* Danh sách */
+        ul, ol {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+        ul li, ol li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* 6. Nút bấm quay lại và nút PDF */
+        .detail-back {
+            color: #0284c7 !important;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .detail-pdf-btn, .btn, button {
+            background: #4b5563 !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 6px !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        /* 7. Badge nhãn bài tập */
+        .project-badge, .tag, .badge {
+            background: #e0f2fe !important; /* Xanh nhạt cho bài tập 6 */
+            color: #0369a1 !important; 
+            border: 1px solid #bae6fd !important;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Khối hộp thông tin */
+        .info-box {
+            padding: 16px !important;
+            border-left: 4px solid #cbd5e1;
+            border-radius: 4px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .info-box.purple {
+            background-color: #f5f3ff !important;
+            border-left: 4px solid #7c3aed !important;
+        }
+        .info-box.purple p, .info-box.purple strong {
+            color: #5b21b6 !important;
+        }
+
+        /* Grid hiển thị 6 nguyên tắc */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        /* 8. Bảng dữ liệu chính sách */
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+        table.comparison-table th {
+            background-color: #e2e8f0 !important;
+            color: #0369a1 !important;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            text-align: left;
+            font-weight: 600;
+        }
+        table.comparison-table td {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        table.comparison-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        /* 9. Ẩn hạt chuyển động nhiễu nền */
+        .particles, .particle {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
     <div class="grid-bg"></div>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
 
-    <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a class="nav-logo" href="index.html">Tzz Portfolio</a>
@@ -39,11 +189,9 @@
                 <li><a class="nav-link" href="projects.html">My Projects</a></li>
                 <li><a class="nav-link" href="summary.html">Tổng Kết</a></li>
             </ul>
-        
         </div>
     </nav>
 
-    <!-- PAGE CONTENT -->
     <div class="page">
         <div class="container">
             <div class="detail-header">
@@ -51,16 +199,16 @@
                 <div class="detail-header-row">
                     <div class="detail-header-left">
                         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                            <span class="project-badge bt6" style="margin-bottom: 0;">Bài tập 6 · Mục 6.4</span>
+                            <span class="project-badge bt6">Bài tập 6 · Mục 6.4</span>
                             <a href="https://drive.google.com/file/d/1WcbBmKbz4SNjVEnd9l5IxWpzFJW-sZ7E/view?usp=sharing" class="detail-pdf-btn" style="padding: 6px 16px; font-size: 0.8rem;" target="_blank">
                                 📄 Tải file PDF bài tập
                             </a>
                         </div>
                         <h1 class="detail-title">An toàn và liêm chính học thuật</h1>
-                        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-top: 8px;">
+                        <p style="color: #4b5563; font-size: 1.05rem; margin-top: 8px;">
                             Sử dụng AI có trách nhiệm trong học tập và nghiên cứu khoa học
                         </p>
-                        <div class="detail-meta" style="margin-top: 16px;">
+                        <div class="detail-meta" style="margin-top: 16px; display: flex; gap: 16px;">
                             <span class="detail-meta-item">📅 Nhiệm vụ 6</span>
                             <span class="detail-meta-item">⚖️ AI Ethics</span>
                             <span class="detail-meta-item">⏱️ Bài tập 4 của mục 6.4</span>
@@ -69,31 +217,25 @@
                 </div>
             </div>
 
-            <!-- Objective -->
-            <div class="objective-card animate-on-scroll">
+            <div class="objective-card">
                 <h3>🎯 Mục tiêu bài tập</h3>
-                <p>
-                    Nghiên cứu và phân tích sâu sắc chính sách quản lý AI của các học viện, trường đại học (ĐHQGHN, Học viện
-Cảnh sát Nhân dân, Học viện An ninh Nhân dân). Thực hiện một nhiệm vụ học thuật thực tế sử dụng trợ lý AI
-thông qua quy trình Đánh giá - Chỉnh sửa - Tích hợp (E-E-I) và thiết lập bộ nguyên tắc ứng xử đạo đức cá nhân khi
-dùng công nghệ.
+                <p style="line-height: 1.6;">
+                    Nghiên cứu và phân tích sâu sắc chính sách quản lý AI của các học viện, trường đại học (ĐHQGHN, Học viện Cảnh sát Nhân dân, Học viện An ninh Nhân dân). Thực hiện một nhiệm vụ học thuật thực tế sử dụng trợ lý AI thông qua quy trình Đánh giá - Chỉnh sửa - Tích hợp (E-E-I) và thiết lập bộ nguyên tắc ứng xử đạo đức cá nhân khi dùng công nghệ.
                 </p>
             </div>
 
-            <!-- Content: School Policies -->
-            <div class="content-block animate-on-scroll">
+            <div class="content-block">
                 <h2><span class="block-icon">🏫</span> So sánh chính sách quản lý AI giữa các trường Đại học</h2>
-                <p>
-                   Mỗi cơ sở đào tạo xây dựng một định hướng tiếp cận khác nhau để cân bằng giữa cơ hội đổi mới công nghệ và rủi
-ro liêm chính học thuật, đặc biệt là sự khác biệt giữa khối dân sự và khối lực lượng vũ trang:
+                <p style="margin-bottom: 12px;">
+                    Mỗi cơ sở đào tạo xây dựng một định hướng tiếp cận khác nhau để cân bằng giữa cơ hội đổi mới công nghệ và rủi ro liêm chính học thuật, đặc biệt là sự khác biệt giữa khối dân sự và khối lực lượng vũ trang:
                 </p>
                 <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>Tiêu chí</th>
                             <th>Đại học Quốc gia Hà Nội (ĐHQGHN)</th>
-                            <th>Học viện Cảnh sát Nhân dân </th>
-                            <th>Học viện An ninh Nhân dân </th>
+                            <th>Học viện Cảnh sát Nhân dân</th>
+                            <th>Học viện An ninh Nhân dân</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,152 +246,124 @@ ro liêm chính học thuật, đặc biệt là sự khác biệt giữa khối
                             <td>Định vị AI thuần túy là công cụ hỗ trợ, gắn liền với bảo mật và an ninh thông tin nghiêm ngặt.</td>
                         </tr>
                         <tr>
-                            <td><strong>Hệ thống phân loại & Quy định</strong></td>
+                            <td><strong>Hệ thống phân loại &amp; Quy định</strong></td>
                             <td>Chưa chia mức độ cứng nhắc, đánh giá tổng thể dựa trên năng lực giải trình của sinh viên.</td>
                             <td>Bắt buộc công khai khi sử dụng AI trong bài tập, nghiên cứu và tuân thủ các quy tắc trích dẫn tương ứng.</td>
                             <td>Tuyệt đối cấm lạm dụng, sao chép nguyên bản tự động tạo toàn bộ nội dung tiểu luận, khóa luận.</td>
                         </tr>
                         <tr>
-                            <td><strong>Công cụ & phương thức kiểm soát</strong></td>
+                            <td><strong>Công cụ &amp; Phương thức kiểm soát</strong></td>
                             <td>Kết hợp hội đồng bảo vệ chuyên môn và phần mềm quét trùng lặp dữ liệu truyền thống.</td>
                             <td>Hướng dẫn giảng viên đánh giá trực tiếp sản phẩm học thuật có sự hỗ trợ của AI để đảm bảo công bằng.</td>
                             <td>Kiểm chứng độc lập nguồn tin; đối chiếu chéo thông tin pháp luật, chính sách với tài liệu chính thống.</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="info-box purple" style="margin-top: 16px;">
+                <div class="info-box purple">
                     <p>
-                        <strong>💡 Nhận định cá nhân:</strong> Chính sách của các trường mang tính hiện đại khi công nhận vai trò trợ lý của công
-nghệ nhưng luôn đặt năng lực tư duy cá nhân làm trọng tâm. Khối trường An ninh và Cảnh sát thể hiện tính
-kỷ luật cao khi thiết lập ranh giới đỏ về an toàn dữ liệu. Do các công cụ AI Detector hiện nay có tỉ lệ sai số
-(False Positive) lớn, việc duy trì cơ chế đánh giá qua hội đồng, phỏng vấn trực tiếp hoặc kiểm chứng chéo
-nguồn tin là bắt buộc để đo lường năng lực thực chất của sinh viên.
+                        <strong>💡 Nhận định cá nhân:</strong> Chính sách của các trường mang tính hiện đại khi công nhận vai trò trợ lý của công nghệ nhưng luôn đặt năng lực tư duy cá nhân làm trọng tâm. Khối trường An ninh và Cảnh sát thể hiện tính kỷ luật cao khi thiết lập ranh giới đỏ về an toàn dữ liệu. Do các công cụ AI Detector hiện nay có tỉ lệ sai số (False Positive) lớn, việc duy trì cơ chế đánh giá qua hội đồng, phỏng vấn trực tiếp hoặc kiểm chứng chéo nguồn tin là bắt buộc để đo lường năng lực thực chất của sinh viên.
                     </p>
                 </div>
             </div>
 
-            <!-- Content: Task Implementation with AI -->
-            <div class="content-block animate-on-scroll">
+            <div class="content-block">
                 <h2><span class="block-icon">💻</span> Thực thi tác vụ học thuật với trợ lý AI</h2>
-                <p>
-                    <strong>Tác vụ thực tế:</strong> <em>"Tổng hợp tài liệu về chính sách quy định cách sử dụng AI cho sinh viên trong học tập và nghiên
-cứu của Học viện An ninh Nhân dân."</em>
+                <p style="margin-bottom: 12px;">
+                    <strong>Tác vụ thực tế:</strong> <em>"Tổng hợp tài liệu về chính sách quy định cách sử dụng AI cho sinh viên trong học tập và nghiên cứu của Học viện An ninh Nhân dân."</em>
                 </p>
-                <ul>
+                
+                <h3 style="font-size: 1.1rem; margin-top: 16px;">🛠️ Quy trình xử lý học thuật Đánh giá - Chỉnh sửa - Tích hợp (E-E-I):</h3>
+                <ul style="margin-bottom: 20px;">
                     <li>
-                        <strong>Nhật ký tương tác (Prompts &amp; Outputs):</strong>
+                        <strong>1. Nhật ký tương tác (Prompts &amp; Outputs):</strong>
                         <ul>
-                            <li><em>Prompt đã dùng:</em> “Hãy tổng hợp tài liệu từ tài liệu: chính sách quy định cách sử dụng AI cho sinh viên trong
-học tập và nghiên cứu của học viện an ninh nhân dân, đảm bảo đầy đủ các ý, dễ hiểu, nguồn tài liệu tham khảo
-trên Google...” </li>
-                            <li><em>Kết quả nhận được từ AI:</em> Hệ thống đã tự động trả về tài liệu tổng hợp chi tiết phân theo các nhóm nội dung
-cốt lõi: (1) Nguyên tắc cốt lõi AI là công cụ, (2) Quy định bảo mật an ninh thông tin, (3) Chống đạo văn và (4)
-Các cách ứng dụng AI được khuyến khích (tóm tắt kiến thức, ôn luyện tiếng Anh B1/B2 VSTEP, xây dựng đề
-cương).</li>
-                    
-                <div class="info-box"
-                    style="border-left-color: var(--accent-cyan); background: rgba(0, 212, 255, 0.04);">
-                    <p><strong>📝 Tuyên bố minh bạch việc sử dụng AI (Citation):</strong></p>
-                    <p style="font-size: 0.9rem; font-style: italic; color: var(--text-secondary);">
-                        "Cấu trúc sơ bộ của tài liệu tổng hợp và các gợi ý định hướng nội dung tại Mục 2 được định hình dựa trên sự
-hỗ trợ phân tích của trợ lý trí tuệ nhân tạo vào ngày 05/06/2026. Sinh viên đã thực hiện kiểm chứng độc lập dữ
-liệu pháp lý, tái cấu trúc văn bản theo quy trình E-E-I và chịu trách nhiệm toàn bộ đối với nội dung khoa học
-hiển thị theo đúng quy chuẩn liêm chính học thuật."
+                            <li><em>Prompt đã dùng:</em> “Hãy tổng hợp tài liệu từ tài liệu: chính sách quy định cách sử dụng AI cho sinh viên trong học tập và nghiên cứu của học viện an ninh nhân dân, đảm bảo đầy đủ các ý, dễ hiểu, nguồn tài liệu tham khảo trên Google...”</li>
+                            <li><em>Kết quả nhận được từ AI:</em> Hệ thống tự động trả về khung tài liệu tổng hợp sơ thô phân theo các nhóm nội dung: (1) Nguyên tắc cốt lõi AI là công cụ hỗ trợ, (2) Quy định bảo mật an ninh thông tin học viện, (3) Chống đạo văn và (4) Các cách ứng dụng được khuyến khích (tóm tắt kiến thức, ôn luyện VSTEP, lập đề cương).</li>
+                        </ul>
+                    </li>
+                    <li><strong>2. Đánh giá (Evaluate):</strong> Phát hiện văn phong AI có phần máy móc và chưa trích dẫn đúng quy định điều khoản đặc thù ngành lực lượng vũ trang.</li>
+                    <li><strong>3. Chỉnh sửa &amp; Tích hợp (Edit &amp; Integrate):</strong> Tiến hành cấu trúc lại toàn bộ văn bản, đối chiếu chéo với các cổng thông tin chính thống của Học viện và lồng ghép tư duy phân tích của cá nhân (Lê Thị Ngọc Anh).</li>
+                </ul>
+                
+                <div class="info-box" style="border-left-color: #0284c7; background: #f0f9ff !important;">
+                    <p style="color: #0369a1;"><strong>📝 Tuyên bố minh bạch việc sử dụng AI (Citation):</strong></p>
+                    <p style="font-size: 0.9rem; font-style: italic; color: #4b5563; margin-top: 4px;">
+                        "Cấu trúc sơ bộ của tài liệu tổng hợp và các gợi ý định hướng nội dung tại Mục 2 được định hình dựa trên sự hỗ trợ phân tích của trợ lý trí tuệ nhân tạo vào ngày 05/06/2026. Sinh viên đã thực hiện kiểm chứng độc lập dữ liệu pháp lý, tái cấu trúc văn bản theo quy trình E-E-I và chịu trách nhiệm toàn bộ đối với nội dung khoa học hiển thị theo đúng quy chuẩn liêm chính học thuật."
                     </p>
                 </div>
             </div>
 
-            <!-- Content: 6 Ethical Principles -->
-            <div class="content-block animate-on-scroll">
+            <div class="content-block">
                 <h2><span class="block-icon">⚖️</span> Bộ 6 nguyên tắc cá nhân sử dụng AI có trách nhiệm</h2>
-                <p>
+                <p style="margin-bottom: 20px;">
                     Để hướng tới sự phát triển tri thức bền vững, tôi tự thiết lập hệ thống 6 quy tắc ứng xử bất biến:
                 </p>
-                <div class="about-grid" style="margin-top: 20px;">
-                    <div class="card" style="padding: 20px; border-left: 3px solid var(--accent-cyan);">
-                        <h3 style="color: var(--accent-cyan); font-size: 1rem; margin-top: 0;">1. Brain Before Bot (Tư
-                            duy đi trước)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Luôn tự suy nghĩ và lập dàn ý sơ bộ trước khi mở AI. AI chỉ là công cụ tối ưu hóa, không bao
-                            giờ được phép là nguồn khởi phát tư duy duy nhất.
+                <div class="about-grid">
+                    <div class="card" style="padding: 20px; border-left: 3px solid #0284c7;">
+                        <h3 style="color: #0284c7; font-size: 1rem; margin-top: 0;">1. Brain Before Bot (Tư duy đi trước)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Luôn tự suy nghĩ và lập dàn ý sơ bộ trước khi mở AI. AI chỉ là công cụ tối ưu hóa, không bao giờ được phép là nguồn khởi phát tư duy duy nhất.
                         </p>
                     </div>
-                    <div class="card" style="padding: 20px; border-left: 3px solid var(--accent-purple);">
-                        <h3 style="color: var(--accent-purple); font-size: 1rem; margin-top: 0;">2. Zero Copy-Paste
-                            (Không sao chép thô)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Tuyệt đối không sao chép nguyên văn đầu ra của AI vào bài nộp. Mọi tài liệu tham khảo phải
-                            được viết lại bằng chính tư duy và văn phong cá nhân.
+                    <div class="card" style="padding: 20px; border-left: 3px solid #7c3aed;">
+                        <h3 style="color: #7c3aed; font-size: 1rem; margin-top: 0;">2. Zero Copy-Paste (Không sao chép thô)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Tuyệt đối không sao chép nguyên văn đầu ra của AI vào bài nộp. Mọi tài liệu tham khảo phải được viết lại bằng chính tư duy và văn phong cá nhân.
                         </p>
                     </div>
-                    <div class="card" style="padding: 20px; border-left: 3px solid var(--accent-blue);">
-                        <h3 style="color: var(--accent-blue); font-size: 1rem; margin-top: 0;">3. Fact-check Everything
-                            (Kiểm chứng độc lập)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Coi mọi dữ liệu, số liệu và mã lệnh do AI cung cấp là giả định cần chứng minh. Bắt buộc đối
-                            chiếu lại giáo trình chính thống hoặc tài liệu được định danh khoa học.
+                    <div class="card" style="padding: 20px; border-left: 3px solid #2563eb;">
+                        <h3 style="color: #2563eb; font-size: 1rem; margin-top: 0;">3. Fact-check Everything (Kiểm chứng độc lập)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Coi mọi dữ liệu, số liệu và mã lệnh do AI cung cấp là giả định cần chứng minh. Bắt buộc đối chiếu lại giáo trình chính thống hoặc tài liệu khoa học chính xác.
                         </p>
                     </div>
-                    <div class="card" style="padding: 20px; border-left: 3px solid var(--accent-emerald);">
-                        <h3 style="color: var(--accent-emerald); font-size: 1rem; margin-top: 0;">4. Absolute
-                            Transparency (Minh bạch nguồn gốc)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Khai báo trung thực, chi tiết mức độ đóng góp của AI trong bài làm. Xem sự minh bạch là danh
-                            dự học thuật cao nhất của bản thân.
+                    <div class="card" style="padding: 20px; border-left: 3px solid #059669;">
+                        <h3 style="color: #059669; font-size: 1rem; margin-top: 0;">4. Absolute Transparency (Minh bạch nguồn gốc)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Khai báo trung thực, chi tiết mức độ đóng góp của AI trong bài làm. Xem sự minh bạch là danh dự học thuật cao nhất của bản thân.
                         </p>
                     </div>
-                    <div class="card" style="padding: 20px; border-left: 3px solid #fb923c;">
-                        <h3 style="color: #fb923c; font-size: 1rem; margin-top: 0;">5. Mastery Over Deliverables (Làm
-                            chủ sản phẩm)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Chỉ nộp những nội dung và dòng code mà bản thân thực sự thấu hiểu bản chất kỹ thuật sâu bên
-                            trong và có năng lực tự tin giải trình trước giảng viên.
+                    <div class="card" style="padding: 20px; border-left: 3px solid #ea580c;">
+                        <h3 style="color: #ea580c; font-size: 1rem; margin-top: 0;">5. Mastery Over Deliverables (Làm chủ sản phẩm)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Chỉ nộp những nội dung và dòng lệnh mà bản thân thực sự thấu hiểu bản chất kỹ thuật sâu bên trong và có năng lực tự tin giải trình trước giảng viên.
                         </p>
                     </div>
-                    <div class="card" style="padding: 20px; border-left: 3px solid #ef4444;">
-                        <h3 style="color: #ef4444; font-size: 1rem; margin-top: 0;">6. Data Sovereignty (Bảo mật dữ
-                            liệu)</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">
-                            Không đăng tải các thông tin cá nhân, mã nguồn bảo mật của nhóm hoặc các kết quả nghiên cứu
-                            mới lên các nền tảng AI mở để tránh nguy cơ rò rỉ dữ liệu.
+                    <div class="card" style="padding: 20px; border-left: 3px solid #dc2626;">
+                        <h3 style="color: #dc2626; font-size: 1rem; margin-top: 0;">6. Data Sovereignty (Bảo mật dữ liệu)</h3>
+                        <p style="font-size: 0.85rem; color: #4b5563; margin-top: 6px;">
+                            Không đăng tải các thông tin cá nhân, mã nguồn bảo mật dự án của nhóm hoặc tài liệu nội bộ lên các nền tảng AI mở để tránh rò rỉ dữ liệu.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Content: Ethical Challenges -->
-            <div class="content-block animate-on-scroll">
+            <div class="content-block">
                 <h2><span class="block-icon">🔍</span> Phân tích các vấn đề đạo đức hệ thống</h2>
-                <p>
+                <p style="margin-bottom: 12px;">
                     Lạm dụng AI trong môi trường học thuật gây ra những rủi ro liên kết dây chuyền:
                 </p>
                 <ol>
                     <li>
                         <strong>Ranh giới mong manh (Hỗ trợ hợp lý vs Gian lận):</strong>
-                        Sự hỗ trợ biến thành gian lận khi sinh viên giao phó hoàn toàn nhiệm vụ nhận thức cho máy, triệt
-                        tiêu mục tiêu tự học và kiểm tra năng lực.
+                        Sự hỗ trợ biến thành gian lận khi sinh viên giao phó hoàn toàn nhiệm vụ nhận thức tư duy cho máy, triệt tiêu hoàn toàn mục tiêu tự học và tự kiểm tra năng lực.
                     </li>
                     <li>
                         <strong>Đạo văn gián tiếp (Plagiarism by Proxy):</strong>
-                        Mô hình AI huấn luyện dựa trên tri thức của hàng triệu tác giả con người nhưng xóa bỏ các vết
-                        tích trích dẫn. Sử dụng nguyên văn AI là đạo văn gián tiếp và vi phạm sở hữu trí tuệ nghiêm
-                        trọng.
+                        Mô hình AI huấn luyện dựa trên tri thức của hàng triệu tác giả con người nhưng xóa bỏ các vết tích trích dẫn nguồn. Sử dụng nguyên văn AI mà không xử lý văn phong là hình thức đạo văn gián tiếp, vi phạm sở hữu trí tuệ nghiêm trọng.
                     </li>
                     <li>
                         <strong>Cạm bẫy nhận thức (Cognitive Trap):</strong>
-                        Việc giao phó bài tập cho AI khiến sinh viên nhầm tưởng mình đã hiểu sâu, nhưng thực chất chỉ có
-                        máy hiểu. Lâu dài, điều này làm thui chột khả năng tư duy độc lập và giải quyết các bài toán
-                        phức tạp thực tế.
+                        Việc giao phó bài tập cho AI khiến sinh viên nhầm tưởng mình đã hiểu sâu, nhưng thực chất chỉ có máy hiểu. Về lâu dài, điều này làm thui chột nghiêm trọng khả năng tư duy độc lập và giải quyết các bài toán phức tạp ngoài thực tế.
                     </li>
                 </ol>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" style="padding: 20px 0; text-align: center; margin-top: 40px; border-top: 1px solid #e5e7eb;">
         <div class="container">
-            <p>© 2026 Le Thi Ngoc Anh · Đại học Kinh te – ĐHQGHN · Nhập môn Công nghệ số &amp; AI</p>
+            <p>© 2026 Le Thi Ngoc Anh · Đại học Kinh tế – ĐHQGHN · Nhập môn Công nghệ số &amp; AI</p>
         </div>
     </footer>
 
