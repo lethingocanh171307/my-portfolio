@@ -8,181 +8,118 @@
     <title>About me | Tzz Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- ÉP GIAO DIỆN SÁNG PHONG CÁCH LOGISTICS & SUPPLY CHAIN -->
-<style>
-    /* 1. Nền trang trắng xám thanh lịch, xóa sạch lưới neon tối */
-    html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"] {
-        background-color: #f3f4f6 !important;
-        background: #f3f4f6 !important;
-        background-image: none !important;
-        color: #1f2937 !important;
-    }
-
-    /* 2. Khung nội dung trắng tinh tế, bo góc nhẹ giống các app quản lý vận đơn */
-    .card, .about-card, .project-card, .profile-card, section, div[class*="card"] {
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
-        border-top: 5px solid #1e3a8a !important; /* Viền xanh thẫm thương hiệu vận tải */
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-        backdrop-filter: none !important;
-    }
-
-    /* 3. Tên riêng và tiêu đề đổi sang màu xanh Logistics quyền lực */
-    h1, .hero-content h1, .text-gradient, [class*="title"] {
-        color: #1e3a8a !important; 
-        background: none !important;
-        -webkit-text-fill-color: #1e3a8a !important;
-        text-shadow: none !important;
-    }
-    h2, h3, h4, h5, h6, .logo {
-        color: #0f172a !important;
-        background: none !important;
-        -webkit-text-fill-color: #0f172a !important;
-    }
-
-    /* 4. Sửa thông tin trường lớp, MSSV sang màu chữ tối rõ ràng */
-    .profile-info, p, span, li, td, th {
-        color: #374151 !important;
-    }
-
-    /* 5. Biến các nút bấm thành màu Cam Vận Chuyển (Tạo điểm nhấn tốc độ hỏa tốc) */
-    button, .btn, .button, a[class*="btn"], [class*="button"], a.btn {
-        background: #ea580c !important; 
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3) !important;
-        text-shadow: none !important;
-        font-weight: 600 !important;
-    }
-
-    /* 6. Xóa bỏ hoàn toàn vòng tròn phát sáng neon (Glow) quanh ảnh avt của bạn */
-    .profile-image, .avatar-wrapper, img, [class*="avatar"] {
-        border: 4px solid #ffffff !important;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
-        animation: none !important;
-        background: #ffffff !important;
-    }
-
-    /* 7. Ẩn nút Dark Mode ở góc phải để giao diện đồng bộ tuyệt đối */
-    [class*="theme"], [class*="mode"], .theme-toggle, button:has(.fa-moon) {
-        display: none !important;
-    }
-</style> <!-- ÉP GIAO DIỆN SÁNG & TỐI ƯU CHỮ ĐẬM RÕ NÉT (LOGISTICS STYLE) -->
-<style>
-    /* 0. NHẬP FONT CHỮ CÔNG SỞ HIỆN ĐẠI, HỖ TRỢ TIẾNG VIỆT HOÀN HẢO */
-    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
     
-    * {
-        font-family: 'Be Vietnam Pro', sans-serif !important;
-    }
+    <!-- ÉP GIAO DIỆN SÁNG PHONG CÁCH LOGISTICS & SUPPLY CHAIN -->
+    <style>
+        /* 0. NHẬP FONT CHỮ CÔNG SỞ HIỆN ĐẠI, HỖ TRỢ TIẾNG VIỆT HOÀN HẢO */
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Be Vietnam Pro', sans-serif !important;
+        }
 
-    /* 1. Nền trang trắng xám thanh lịch, xóa sạch lưới neon tối */
-    html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"], [class*="container"] {
-        background-color: #f3f4f6 !important;
-        background: #f3f4f6 !important;
-        background-image: none !important;
-        color: #1f2937 !important;
-    }
+        /* 1. Nền trang trắng xám thanh lịch, xóa sạch lưới neon tối */
+        html, body, .page, main, #app, .grid-bg, .main-container, [class*="bg"], [class*="container"] {
+            background-color: #f3f4f6 !important;
+            background: #f3f4f6 !important;
+            background-image: none !important;
+            color: #1f2937 !important;
+        }
 
-    /* 2. Khung nội dung (Cards) biến thành màu trắng tinh tế, viền xanh Logistics */
-    .card, .about-card, .project-card, .profile-card, section, div[class*="card"], .exercise-card {
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-        border: 1px solid #e5e7eb !important;
-        border-top: 5px solid #1e3a8a !important; 
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-        backdrop-filter: none !important;
-    }
+        /* 2. Khung nội dung (Cards) biến thành màu trắng tinh tế, viền xanh Logistics */
+        .card, .about-card, .project-card, .profile-card, section, div[class*="card"], .exercise-card {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border: 1px solid #e5e7eb !important;
+            border-top: 5px solid #1e3a8a !important; /* Viền xanh thẫm thương hiệu vận tải */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+            backdrop-filter: none !important;
+        }
 
-    /* 3. SỬA LỖI CHỮ MENU BỊ MỜ (Làm rõ chữ About Me, Tổng Kết trên thanh điều hướng) */
-    nav a, .nav-link, .nav-links a, [class*="nav"] a, [class*="menu"] a, .nav-item {
-        color: #4b5563 !important; /* Đổi từ màu trắng mờ sang màu xám đen công sở */
-        font-weight: 600 !important;
-        opacity: 1 !important;
-    }
-    nav a:hover, .nav-link:hover, [class*="active"], .active-link {
-        color: #1e3a8a !important; /* Biến chữ đang chọn thành màu xanh thẫm quyền lực */
-        font-weight: 700 !important;
-    }
+        /* 3. SỬA LỖI CHỮ MENU BỊ MỜ */
+        nav a, .nav-link, .nav-links a, [class*="nav"] a, [class*="menu"] a, .nav-item {
+            color: #4b5563 !important; /* Màu xám đen công sở */
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+        nav a:hover, .nav-link:hover, [class*="active"], .active-link {
+            color: #1e3a8a !important; /* Biến chữ đang chọn thành màu xanh thẫm quyền lực */
+            font-weight: 700 !important;
+        }
 
-    /* 4. TIÊU ĐỀ LỚN & CHỮ GRADIENT (Làm rõ nét chữ Projects và tên riêng của bạn) */
-    h1, .hero-content h1, .text-gradient, [class*="title"], h2, [class*="gradient"] {
-        color: #1e3a8a !important; 
-        background: none !important;
-        -webkit-text-fill-color: #1e3a8a !important;
-        text-shadow: none !important;
-        font-weight: 700 !important;
-    }
-    h3, h4, h5, h6, .logo, [class*="subtitle"], [class*="card-title"] {
-        color: #0f172a !important;
-        background: none !important;
-        -webkit-text-fill-color: #0f172a !important;
-    }
+        /* 4. TIÊU ĐỀ LỚN & CHỮ GRADIENT */
+        h1, .hero-content h1, .text-gradient, [class*="title"], h2, [class*="gradient"] {
+            color: #1e3a8a !important; 
+            background: none !important;
+            -webkit-text-fill-color: #1e3a8a !important;
+            text-shadow: none !important;
+            font-weight: 700 !important;
+        }
+        h2, h3, h4, h5, h6, .logo, [class*="subtitle"], [class*="card-title"] {
+            color: #0f172a !important;
+            background: none !important;
+            -webkit-text-fill-color: #0f172a !important;
+        }
 
-    /* 5. SỬA LỖI CÁC SỐ GÓC BỊ CHÌM MẤT (Làm rõ số 01, 02 ở góc thẻ bài tập) */
-    [class*="number"], .card-number, .exercise-number, [class*="index"], .project-number {
-        color: #cbd5e1 !important; /* Đổi thành màu xám bạc sang trọng, nhìn rõ nhưng không đè chữ chính */
-        -webkit-text-fill-color: #cbd5e1 !important;
-        text-shadow: none !important;
-    }
+        /* 5. SỬA LỖI CÁC SỐ GÓC BỊ CHÌM MẤT */
+        [class*="number"], .card-number, .exercise-number, [class*="index"], .project-number {
+            color: #cbd5e1 !important; /* Màu xám bạc sang trọng */
+            -webkit-text-fill-color: #cbd5e1 !important;
+            text-shadow: none !important;
+        }
 
-    /* 6. Toàn bộ chữ mô tả, đoạn văn đổi sang màu tối rõ nét, dễ đọc bài luận */
-    p, span, li, td, th, .profile-info, .card p, .project-card p, .exercise-card p {
-        color: #374151 !important;
-    }
+        /* 6. Toàn bộ chữ mô tả, đoạn văn đổi sang màu tối rõ nét */
+        p, span, li, td, th, .profile-info, .card p, .project-card p, .exercise-card p {
+            color: #374151 !important;
+        }
 
-    /* 7. Nút bấm "Xem chi tiết" thành màu Cam Vận Chuyển nổi bật */
-    button, .btn, .button, a[class*="btn"], [class*="button"], a.btn, [class*="btn-primary"] {
-        background: #ea580c !important; 
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 6px !important;
-        box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3) !important;
-        text-shadow: none !important;
-        font-weight: 600 !important;
-    }
+        /* 7. Nút bấm thành màu Cam Vận Chuyển (Tạo điểm nhấn tốc độ hỏa tốc) */
+        button, .btn, .button, a[class*="btn"], [class*="button"], a.btn, [class*="btn-primary"] {
+            background: #ea580c !important; 
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.3) !important;
+            text-shadow: none !important;
+            font-weight: 600 !important;
+        }
 
-    /* Nút "Tải PDF" đổi thành màu xám xi măng thanh lịch */
-    a[href*="pdf"], button:has(.fa-file-pdf), a:has(.fa-file-pdf), [class*="pdf"], .btn-secondary {
-        background: #4b5563 !important;
-        color: #ffffff !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
+        /* Nút phụ đổi thành màu xám xi măng thanh lịch */
+        a[href*="pdf"], button:has(.fa-file-pdf), a:has(.fa-file-pdf), [class*="pdf"], .btn-secondary {
+            background: #4b5563 !important;
+            color: #ffffff !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
 
-    /* 8. Chỉnh sửa các từ khóa thẻ nhãn (File Management, Search Operators...) */
-    .tag, span[class*="tag"], .badge, [class*="skill"], div[class*="tags"] span {
-        background: #e0f2fe !important; 
-        color: #0369a1 !important; 
-        border: 1px solid #bae6fd !important;
-        text-shadow: none !important;
-    }
+        /* 8. Xóa bỏ hoàn toàn vòng tròn phát sáng neon (Glow) quanh ảnh avatar */
+        .profile-image, .avatar-wrapper, img, [class*="avatar"] {
+            border: 4px solid #ffffff !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+            animation: none !important;
+            background: #ffffff !important;
+        }
 
-    /* 9. Ẩn nút chọn Dark Mode */
-    [class*="theme"], [class*="mode"], .theme-toggle, button:has(.fa-moon) {
-        display: none !important;
-    }
-</style>
+        /* 9. Từ khóa thẻ nhãn */
+        .tag, span[class*="tag"], .badge, [class*="skill"], div[class*="tags"] span {
+            background: #e0f2fe !important; 
+            color: #0369a1 !important; 
+            border: 1px solid #bae6fd !important;
+            text-shadow: none !important;
+        }
+
+        /* 10. Ẩn nút chọn Dark Mode để giao diện đồng bộ tuyệt đối */
+        [class*="theme"], [class*="mode"], .theme-toggle, button:has(.fa-moon) {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
     <div class="grid-bg"></div>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <div class="particles" style="display: none !important;"></div>
 
     <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
@@ -196,69 +133,65 @@
                 <li><a class="nav-link" href="projects.html">My Projects</a></li>
                 <li><a class="nav-link" href="summary.html">Tổng Kết</a></li>
             </ul>
-        
         </div>
     </nav>
 
     <!-- PAGE CONTENT -->
     <div class="page">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" style="padding: 40px 0;">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <p class="greeting">👋 Xin chào, tôi là</p>
+                        <p class="greeting" style="font-weight: 500; margin-bottom: 8px;">👋 Xin chào, tôi là</p>
                         <h1>
                             <span class="text-gradient">Lê Thị Ngọc Anh</span><br>
-                            Sinh viên Trường Đại học Kinh tế (UEB) - KTQT 10 - K70
+                            <span style="font-size: 1.5rem; font-weight: 500; color: #374151;">Sinh viên Trường Đại học Kinh tế (UEB) - KTQT 10 - K70</span>
                         </h1>
-                        <p class="description">
-                            
+                        <p class="description" style="margin-top: 16px; line-height: 1.6;">
                             Đây là không gian số lưu trữ hành trình học tập, phát triển kỹ năng và điều phối các dự án sáng tạo của tôi. Nơi tôi ứng dụng các công cụ công nghệ hiệu suất và quy trình tối ưu để giải quyết các bài toán thực tế.
-</p>
-                            
                         </p>
-                        <div class="hero-actions">
-                            <a class="btn btn-primary" href="projects.html">📂 Xem dự án</a>
-                            <a class="btn btn-primary" href="summary.html">📝 Tổng kết</a>
+                        <div class="hero-actions" style="margin-top: 24px; display: flex; gap: 12px;">
+                            <a class="btn btn-primary" href="projects.html" style="padding: 10px 20px; text-decoration: none;">📂 Xem dự án</a>
+                            <a class="btn btn-primary" href="summary.html" style="padding: 10px 20px; text-decoration: none;">📝 Tổng kết</a>
                         </div>
                     </div>
-                    <div class="hero-visual">
+                    <div class="hero-visual" style="margin-top: 30px;">
                         <div class="profile-card">
-                            <div class="profile-card-inner">
-                                <div class="avatar">
-                                    <img src="avt.jpg" alt="Le Thi Ngoc Anh Avatar" class="avatar-img">
+                            <div class="profile-card-inner" style="padding: 20px;">
+                                <div class="avatar" style="position: relative; text-align: center; margin-bottom: 16px;">
+                                    <img src="avt.jpg" alt="Le Thi Ngoc Anh Avatar" class="avatar-img" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
                                     <div class="scan-line"></div>
                                 </div>
-                                <h2 class="profile-name">Lê Thị Ngọc Anh </h2>
-                                <p class="profile-role">Khoa : Kinh tế & Kinh doanh quốc tế </p>
-                                <ul class="profile-info">
-                                    <li>
-                                        <span class="info-icon">🎓</span>
+                                <h2 class="profile-name" style="text-align: center; font-size: 1.4rem; margin-bottom: 4px;">Lê Thị Ngọc Anh</h2>
+                                <p class="profile-role" style="text-align: center; color: #4b5563; font-size: 0.95rem; margin-bottom: 16px;">Khoa: Kinh tế & Kinh doanh quốc tế</p>
+                                <ul class="profile-info" style="list-style: none; padding: 0;">
+                                    <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                        <span class="info-icon" style="font-size: 1.2rem;">🎓</span>
                                         <div>
-                                            <span class="info-label">Trường</span><br>
-                                            <span class="info-value">Đại học Kinh tế - ĐHQGHN</span>
+                                            <span class="info-label" style="font-size: 0.8rem; color: #6b7280; uppercase;">Trường</span><br>
+                                            <span class="info-value" style="font-weight: 500;">Đại học Kinh tế - ĐHQGHN</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <span class="info-icon">📋</span>
+                                    <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                        <span class="info-icon" style="font-size: 1.2rem;">📋</span>
                                         <div>
-                                            <span class="info-label">MSSV</span><br>
-                                            <span class="info-value">25051097</span>
+                                            <span class="info-label" style="font-size: 0.8rem; color: #6b7280; uppercase;">MSSV</span><br>
+                                            <span class="info-value" style="font-weight: 500;">25051097</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <span class="info-icon">📧</span>
+                                    <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                        <span class="info-icon" style="font-size: 1.2rem;">📧</span>
                                         <div>
-                                            <span class="info-label">Email</span><br>
-                                            <span class="info-value">25051097@vnu.edu.vn</span>
+                                            <span class="info-label" style="font-size: 0.8rem; color: #6b7280; uppercase;">Email</span><br>
+                                            <span class="info-value" style="font-weight: 500;">25051097@vnu.edu.vn</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <span class="info-icon">💡</span>
+                                    <li style="display: flex; align-items: flex-start; gap: 12px;">
+                                        <span class="info-icon" style="font-size: 1.2rem;">💡</span>
                                         <div>
-                                            <span class="info-label">Sở thích</span><br>
-                                            <span class="info-value">Du lịch, Nghe nhạc, Xem phim</span>
+                                            <span class="info-label" style="font-size: 0.8rem; color: #6b7280; uppercase;">Sở thích</span><br>
+                                            <span class="info-value" style="font-weight: 500;">Du lịch, Nghe nhạc, Xem phim</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -270,49 +203,33 @@
         </section>
 
         <!-- Goals & Portfolio Purpose -->
-        <section class="section">
+        <section class="section" style="padding: 40px 0;">
             <div class="container">
-                <span class="section-label"><span class="dot"></span> Mục tiêu</span>
-                <h2 class="section-title">Định hướng <span class="gradient">phát triển</span></h2>
-                <p class="section-subtitle">
-                    Mục tiêu học tập và định hướng phát triển cá nhân trong lĩnh vực Công nghệ thông tin.
+                <span class="section-label" style="font-weight: 600; color: #1e3a8a;"><span class="dot" style="display: inline-block; width: 8px; height: 8px; background: #ea580c; border-radius: 50%; margin-right: 6px;"></span> Mục tiêu</span>
+                <h2 class="section-title" style="margin-top: 8px; margin-bottom: 4px;">Định hướng phát triển</h2>
+                <p class="section-subtitle" style="color: #4b5563; margin-bottom: 24px;">
+                    Mục tiêu học tập và định hướng phát triển cá nhân trong lĩnh vực Công nghệ thông tin và Logistics.
                 </p>
-                <div class="about-grid">
-                    <div class="card about-card animate-on-scroll stagger-1">
-                        <div class="about-card-icon cyan">🎯</div>
-                        <h3>Mục tiêu học tập</h3>
-                        <p>
-                            Nâng cao toàn diện kiến thức nền tảng về quản trị, chuỗi cung ứng và nền kinh tế số. Không chỉ dừng lại ở lý thuyết
-                           mục tiêu cốt lõi của mình là làm chủ và ứng dụng thành thạo <strong>Trí
-                                tuệ nhân
-                                tạo (AI) và Công nghệ số </strong> vo việc tối ưu hóa quy trình học tập cũng như làm việc nhóm.Từ đó, xây dựng tư duy giải quyết vấn đề (problem-solving), nâng cao 
-                          năng lực điều phối và rèn 
-                            luyện kỹ năng thích ứng nhanh trong môi trường công nghệ số luôn biến đổi.
+                <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="card about-card">
+                        <div class="about-card-icon cyan" style="font-size: 2rem; margin-bottom: 12px;">🎯</div>
+                        <h3 style="margin-bottom: 8px;">Mục tiêu học tập</h3>
+                        <p style="line-height: 1.6; font-size: 0.95rem;">
+                            Nâng cao toàn diện kiến thức nền tảng về quản trị, chuỗi cung ứng và nền kinh tế số. Không chỉ dừng lại ở lý thuyết, mục tiêu cốt lõi của mình là làm chủ và ứng dụng thành thạo <strong>Trí tuệ nhân tạo (AI) và Công nghệ số</strong> vào việc tối ưu hóa quy trình học tập cũng như làm việc nhóm. Từ đó, xây dựng tư duy giải quyết vấn đề (problem-solving), nâng cao năng lực điều phối và rèn luyện kỹ năng thích ứng nhanh trong môi trường công nghệ số luôn biến đổi.
                         </p>
                     </div>
-                    <div class="card about-card animate-on-scroll stagger-2">
-                        <div class="about-card-icon purple">🚀</div>
-                        <h3>Định hướng phát triển</h3>
-                        <p>
-                            Hướng tới mục tiêu trở thành một <strong>Nhà điều phối dự án năng động và chuyên gia tối ưu hóa </strong> Nguồn nhân lực & Chuỗi cung ứng 
-                            ( Logistics) <strong> . Định hướng
-                            của mình là tích hợp sâu sắc sức mạnh của <strong> Generative AI ( Prompt Engineering) <strong> cùng các nền tảng quản trị công việc hiện đại ( Asana, Jira,..) để bứt phá hiệu suất.
-                            Song song với đó, việc kết nối tư duy thiết kế sáng tạo và thu hẹp khoảng cách giữa lý thuyết học thuật với thực tiễn doanh nghiệp 
-                             là kim chỉ nam vững chắc cho mọi dự
-                            án mình tham gia.
+                    <div class="card about-card">
+                        <div class="about-card-icon purple" style="font-size: 2rem; margin-bottom: 12px;">🚀</div>
+                        <h3 style="margin-bottom: 8px;">Định hướng phát triển</h3>
+                        <p style="line-height: 1.6; font-size: 0.95rem;">
+                            Hướng tới mục tiêu trở thành một <strong>Nhà điều phối dự án năng động và chuyên gia tối ưu hóa</strong> Nguồn nhân lực & Chuỗi cung ứng (Logistics). Định hướng của mình là tích hợp sâu sắc sức mạnh của <strong>Generative AI (Prompt Engineering)</strong> cùng các nền tảng quản trị công việc hiện đại (Asana, Jira,...) để bứt phá hiệu suất. Song song với đó, việc kết nối tư duy thiết kế sáng tạo và thu hẹp khoảng cách giữa lý thuyết học thuật với thực tiễn doanh nghiệp là kim chỉ nam vững chắc cho mọi dự án mình tham gia.
                         </p>
                     </div>
-                    <div class="card about-card animate-on-scroll stagger-3">
-                        <div class="about-card-icon emerald">📁</div>
-                        <h3>Mục tiêu Portfolio</h3>
-                        <p>
-                            Portfolio này không chỉ là sản phẩm tổng kết học phần <strong>Nhập môn Công nghệ số & Ứng
-                                dụng AI</strong>,
-                            mà còn là một <strong>Digital CV</strong> minh chứng cho năng lực thực chiến. Đây là không
-                            gian lưu trữ và
-                            hệ thống hóa các kỹ năng số của mình (quản lý tệp, tra cứu học thuật, Prompt
-                            Engineering...), đóng vai trò là công cụ đắc lực để giới thiệu bản thân với các nhà tuyển
-                            dụng và đối tác trong tương lai.
+                    <div class="card about-card">
+                        <div class="about-card-icon emerald" style="font-size: 2rem; margin-bottom: 12px;">📁</div>
+                        <h3 style="margin-bottom: 8px;">Mục tiêu Portfolio</h3>
+                        <p style="line-height: 1.6; font-size: 0.95rem;">
+                            Portfolio này không chỉ là sản phẩm tổng kết học phần <strong>Nhập môn Công nghệ số & Ứng dụng AI</strong>, mà còn là một <strong>Digital CV</strong> minh chứng cho năng lực thực chiến. Đây là không gian lưu trữ và hệ thống hóa các kỹ năng số của mình (quản lý tệp, tra cứu học thuật, Prompt Engineering...), đóng vai trò là công cụ đắc lực để giới thiệu bản thân với các nhà tuyển dụng và đối tác trong tương lai.
                         </p>
                     </div>
                 </div>
@@ -321,9 +238,9 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" style="padding: 20px 0; text-align: center; border-top: 1px solid #e5e7eb; margin-top: 40px;">
         <div class="container">
-            <p>© 2026 Le Thi Ngoc Anh · Đại học Kinh te – ĐHQGHN · Nhập môn Công nghệ số &amp; AI</p>
+            <p>© 2026 Le Thi Ngoc Anh · Đại học Kinh tế – ĐHQGHN · Nhập môn Công nghệ số &amp; AI</p>
         </div>
     </footer>
     <script src="script.js"></script>
